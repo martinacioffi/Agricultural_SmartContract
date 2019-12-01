@@ -1,0 +1,1 @@
+**Martina, Dec 1**: created bot and UI for smart contract creation
