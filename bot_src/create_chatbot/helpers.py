@@ -115,4 +115,4 @@ def detect_intent_texts(project_id: str, session_id: str, text: str, language_co
         query_input = dialogflow.types.QueryInput(text=text_input)
         response = session_client.detect_intent(session=session, query_input=query_input)
 
-        return response.query_result.fulfillment_text
+        return response.query_result.action, response.query_result.fulfillment_text
