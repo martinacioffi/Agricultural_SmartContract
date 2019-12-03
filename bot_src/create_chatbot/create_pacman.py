@@ -1,10 +1,10 @@
-from create_chatbot.helpers import create_intent, agrisc_id, create_entity, create_entity_type, get_entity_id
-from create_chatbot.create_contract import create_name, create_tp, create_mt
-from create_chatbot.holder_name import holder_name, holder_tp, holder_mt, holder_params
-from create_chatbot.farm_location import location_name, location_tp, location_mt, location_params
-from create_chatbot.land_size import size_name, size_tp, size_mt, size_params
-from create_chatbot.danger import danger_name, danger_tp, danger_mt, danger_params
-from create_chatbot.contract_type import type_name, type_tp, type_mt, type_params
+from bot_src.create_chatbot.helpers import create_intent, agrisc_id, create_entity, create_entity_type, get_entity_id
+from bot_src.create_chatbot.create_contract import create_name, create_tp, create_mt
+from bot_src.create_chatbot.holder_name import holder_name, holder_tp, holder_mt, holder_params
+from bot_src.create_chatbot.farm_location import location_name, location_tp, location_mt, location_params
+from bot_src.create_chatbot.land_size import size_name, size_tp, size_mt, size_params
+from bot_src.create_chatbot.danger import danger_name, danger_tp, danger_mt, danger_params
+from bot_src.create_chatbot.contract_type import type_name, type_tp, type_mt, type_params
 
 print('Creating Pacman entities...')
 

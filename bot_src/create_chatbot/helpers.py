@@ -1,7 +1,9 @@
 import dialogflow_v2 as dialogflow
 from typing import List, Dict
+import os
 
-agrisc_id = 'agrisc-tafasq'
+# agrisc_id = 'agrisc-tafasq'
+agrisc_id = os.environ['PROJECT_ID']
 
 
 def create_intent(project_id: str, display_name: str, training_phrases: List[List[Dict]],
