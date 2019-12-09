@@ -8,8 +8,8 @@ agrisc_id = os.environ['PROJECT_ID']
 
 def create_intent(project_id: str, display_name: str, training_phrases: List[List[Dict]],
                   message_texts: List[str], input_context_names: List[str] = None,
-                  output_contexts_names: List[str] = None, action: str = None, parameters: List[Dict] = None,
-                  webhook_state: bool = True, priority: int = 500000):
+                  output_contexts_names: Dict[str, int] = None, action: str = None,
+                  parameters: List[Dict] = None, webhook_state: bool = True, priority: int = 500000):
 
     """Create an intent of the given intent type."""
 
@@ -33,7 +33,8 @@ def create_intent(project_id: str, display_name: str, training_phrases: List[Lis
 
     if output_contexts_names:
         output_contexts = [dialogflow.types.Context(name=f'projects/{project_id}/agent/sessions/-/contexts/{cont}',
-                                                    lifespan_count=1) for cont in output_contexts_names]
+                                                    lifespan_count=output_contexts_names[cont])
+                           for cont in output_contexts_names.keys()]
     else:
         output_contexts = None
 
@@ -116,5 +117,6 @@ def detect_intent_texts(project_id: str, session_id: str, text: str, language_co
         text_input = dialogflow.types.TextInput(text=text, language_code=language_code)
         query_input = dialogflow.types.QueryInput(text=text_input)
         response = session_client.detect_intent(session=session, query_input=query_input)
-
-        return response.query_result.action, response.query_result.fulfillment_text
+        params = response.query_result.parameters
+        print(response.query_result.output_contexts[0].parameters)
+        return response.query_result.action, response.query_result.fulfillment_text, params

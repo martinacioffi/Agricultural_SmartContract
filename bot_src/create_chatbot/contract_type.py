@@ -63,7 +63,7 @@ type_tp = [
       'user_defined': False}],
 ]
 
-type_mt = ['Alright, we can proceed with a $contract-type contract.']
+type_mt = ['Alright, we can proceed with a $contract-type contract. If you want to confirm, type PROCEED.']
 
 type_params = [{'name': '',
                 'display_name': 'contract-type',

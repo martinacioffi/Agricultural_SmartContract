@@ -36,14 +36,14 @@ print('\nDone. Now creating Pacman intents...')
 create_intent(project_id=agrisc_id, display_name=create_name,
               training_phrases=create_tp,
               message_texts=create_mt,
-              output_contexts_names=['awaiting_name'],
+              output_contexts_names={'awaiting_name': 1, 'session_vars': 50},
               action=create_name)
 
 create_intent(project_id=agrisc_id, display_name=holder_name,
               training_phrases=holder_tp,
               message_texts=holder_mt,
               input_context_names=['awaiting_name'],
-              output_contexts_names=['awaiting_location'],
+              output_contexts_names={'awaiting_location': 1},
               action=holder_name,
               parameters=holder_params)
 
@@ -51,7 +51,7 @@ create_intent(project_id=agrisc_id, display_name=location_name,
               training_phrases=location_tp,
               message_texts=location_mt,
               input_context_names=['awaiting_location'],
-              output_contexts_names=['awaiting_land_size'],
+              output_contexts_names={'awaiting_land_size': 1},
               action=location_name,
               parameters=location_params)
 
@@ -59,7 +59,7 @@ create_intent(project_id=agrisc_id, display_name=size_name,
               training_phrases=size_tp,
               message_texts=size_mt,
               input_context_names=['awaiting_land_size'],
-              output_contexts_names=['awaiting_danger'],
+              output_contexts_names={'awaiting_danger': 1},
               action=size_name,
               parameters=size_params)
 
@@ -67,7 +67,7 @@ create_intent(project_id=agrisc_id, display_name=danger_name,
               training_phrases=danger_tp,
               message_texts=danger_mt,
               input_context_names=['awaiting_danger'],
-              output_contexts_names=['awaiting_contract_type'],
+              output_contexts_names={'awaiting_contract_type': 1},
               action=danger_name,
               parameters=danger_params)
 
@@ -75,5 +75,6 @@ create_intent(project_id=agrisc_id, display_name=type_name,
               training_phrases=type_tp,
               message_texts=type_mt,
               input_context_names=['awaiting_contract_type'],
+              output_contexts_names={'confirm_proceed': 1},
               action=type_name,
               parameters=type_params)
