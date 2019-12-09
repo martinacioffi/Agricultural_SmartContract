@@ -16,7 +16,7 @@ Also, since DialogFlow does not work on localhost, you will need Ngrok (which ca
 Following are the steps that need to be followed in order to create the DialogFlow agent that will communicate with the Python code contained in this repository:
 - go to the DialogFlow [login page](https://dialogflow.cloud.google.com/#/login) and log in with your Google account;
 - in the top right corner, select "Go to Console" and create a new agent;
-- click on the gear next to your agent name, and set the Project ID as environmental variable by running ```export PROJECT_ID="your_project_id" ```; 
+- click on the gear next to your agent name, and set the Project ID as environmental variable by running ```export PROJECT_ID="your_project_id" ```; note for **Windows users**: replace `export` with `set` both here and in the last instruction;
 - go to the [create service account](https://console.cloud.google.com/apis/credentials/serviceaccountkey?_ga=2.215926871.-1742798903.1541256042) page of the GPC Console; from the **Service account** list, select **New service account**; in the **Service account** name field, enter a name; and from the **Role** list, select **Project > Owner**. Finally, click **Create** to download the JSON file containing your key to your computer;
 - store the above file in a safe location, and set the environmental variable to provide authentication credentials to your application code as follows:
  ```export GOOGLE_APPLICATION_CREDENTIALS="path/to/your_credentials.json" ``` . 
