@@ -2,8 +2,8 @@
 
 This project consists in a basic prototype for writing and deploying smart contracts for agricultural insurance on a blockchain.
 
-It allows users to specify several parameters, which may depend, for instance, on one's land's size, where it is located, or which adverse weather condition one wants to insure against; and afterwards create and deploy a contract on the blockchain. 
-As of now, the easiest way to create a contract is by interacting with the Pacman agent, that guides the user through the steps needed for the whole contract creation.
+It allows users to specify several parameters, which may depend, for instance, on one's land's size, where it is located, or which adverse weather condition one wants to insure against; and afterwards creates and deploys a contract on the blockchain. 
+As of now, the easiest way to create a contract is by interacting with the Pacman agent, that guides the user through the steps necessary for the whole contract creation.
 
 
 ## Project Organization
