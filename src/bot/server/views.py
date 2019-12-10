@@ -30,15 +30,13 @@ def process():
         return redirect(url_for('home.welcome'))
     elif raw_query.upper() == 'PROCEED':
         location, month = get_params(os.environ['PROJECT_ID'], session, raw_query)
-        # location = 'milan'  #TODO get this from bot parameters
-        month = 4 # todo same from session vars -> extrapolate num of month
-        precip = avg_precipitation(location, month,)
+        precip = 32  # avg_precipitation(location, month,)
         address = create_new_address()
         _, __, ___, _____, utterance = create_contract(location, month, precip, address)
         return utterance
     else:
         bot_responses = ''
-        action, bot_response, params = detect_intent_texts(os.environ['PROJECT_ID'], session, raw_query)
+        action, bot_response = detect_intent_texts(os.environ['PROJECT_ID'], session, raw_query)
         if action.startswith('smalltalk'):
             bot_responses = f'{bot_response}<br><br>{bot_responses}'
         else:

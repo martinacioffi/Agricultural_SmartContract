@@ -117,10 +117,7 @@ def detect_intent_texts(project_id: str, session_id: str, text: str, language_co
         text_input = dialogflow.types.TextInput(text=text, language_code=language_code)
         query_input = dialogflow.types.QueryInput(text=text_input)
         response = session_client.detect_intent(session=session, query_input=query_input)
-        params = response.query_result.parameters
-        if text.upper() == 'PROCEED' or text.upper() == 'PROCEED ':
-            print(response.query_result.output_contexts[0].parameters)
-        return response.query_result.action, response.query_result.fulfillment_text, params
+        return response.query_result.action, response.query_result.fulfillment_text
 
 
 def get_params(project_id: str, session_id: str, text: str, language_code: str = 'en') -> Tuple[str, int]:
@@ -132,7 +129,6 @@ def get_params(project_id: str, session_id: str, text: str, language_code: str =
     query_input = dialogflow.types.QueryInput(text=text_input)
     response = session_client.detect_intent(session=session, query_input=query_input)
     params = response.query_result.output_contexts[0].parameters
-
-    location = 'm'
-    month = 4
+    location = params.fields['geo-city'].string_value
+    month = int(params.fields['date-period'].struct_value.fields['startDate'].string_value.split('-')[1][-1])
     return location, month
