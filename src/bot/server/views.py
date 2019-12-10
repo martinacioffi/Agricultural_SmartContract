@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, request, Blueprint
-from bot_src.create_chatbot.helpers import detect_intent_texts
+from src.bot.create_chatbot.helpers import detect_intent_texts
 from src.contract import create_contract
 
 home_blueprint = Blueprint(
@@ -25,7 +25,7 @@ def process():
     raw_query = request.args.get('msg')
     if raw_query is None:
         return redirect(url_for('home.welcome'))
-    elif raw_query == 'PROCEED':
+    elif raw_query.upper() == 'PROCEED':
         #TODO get the right parameters from the json session vars
         _, __, ___, _____, utterance = create_contract('milan', 4, 32, 'johndoe.eth')
         return utterance

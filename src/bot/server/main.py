@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from bot_src.server.views import home_blueprint, pacman_blueprint
+from src.bot.server.views import home_blueprint, pacman_blueprint
 
 app = Flask(__name__, template_folder='../server/templates')
 app.register_blueprint(home_blueprint)
