@@ -8,7 +8,7 @@ As of now, the easiest way to create a contract is by interacting with the Pacma
 
 ## Project Organization
 
-The repository is organized as in three main folders:
+This repository is organized in three main folders:
 1. `src` contains the main functions needed to create and deploy the contract on a simulated blockchain, in `contract.py` as well as two other sub-folders, that is:
 2. `bot`, which contains: 
     - ``create_chatbot``, useful to replicate the chatbot on one's local machine;
