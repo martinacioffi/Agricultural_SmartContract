@@ -1,1 +1,37 @@
-qui scrivere cose eventuali che ci vogliamo assolutamente ricordare di scrivere nel report o nella presentazione
+FINTECH AND BLOCKCHAINS
+Smart contracts for agricultural insurance
+
+Introduction
+
+Agriculture holds a central role in the economy of developing countries. This sector is exposed to many risk factors and thus suffers from fragility and volatility, positioning itself as a constant background issue to developing economies. One of such risks is the weather condition: excessive rain periods or drought periods can severely harm the crops, causing shocks in the economy both on a macroeconomic scale and on a microeconomic one. Due to climate, farmers can have difficulties to sustain them and their families, which would lead to terrible welfare conditions in agricultural-based countries, also triggering the rise in commodity prices which could damage an entire country’s position in the international trade environment. Because of these reasons and the strategic importance of the agricultural sector for many countries, governments of such countries often intervene in the crop’s insurance process; however, this process is often inefficient, and many frictions arise. With this work we aim at creating a more effective and efficient crop insurance process, which would benefit both individual agents and the economy as a whole. Our goal is that of leveraging publicly available weather API services to automatically activate weather index-based insurance.  
+
+Natural risks and perils
+
+Production and natural resource risks are relevant in the discussion of crop insurance since both quantity and quality losses can result from them. These risks include adverse climate conditions such as excessive rain, flood, hail, drought and many others. We decided to focus mainly on excessive precipitations since it is easier to obtain an objective measurement in this case.
+Crops need water, and much of the developing world’s arable and horticultural production relies on rainfall. But too much rain at any time can damage a crop. The first danger point is excessive rain just after germination and emergence. Entire crops can be washed out of the ground, necessitating resowing. The next common point of vulnerability is at or near to harvest. Grains can sprout prematurely while still growing in the field. Various fruits can be damaged by excessive rain or even any rain just prior to harvest. Other crops can be lost when excessive rain prevents harvest.
+Moreover, from a purely underwriting point of view drought, for example, poses great difficulties for a standard crop. This happens because losses are very large since drought affects a large number of growers in the same season. Secondly, drought may have an extension period of over more than one year meaning that the actuarially calculated premiums would be very high. 
+
+Criticalities of state-of-the-art crop insurance methods and new insurance products
+
+Traditional insurance methods in this sector are inefficient in different ways.
+In a traditional crop insurance policy, evidence of damage to the actual crop on the farm, or in the area of the farm, is needed before an indemnity is paid. But verifying that such damage has occurred is expensive and making an accurate measurement of the loss on each individual insured farm is even more costly.
+Moreover, smallholder farmers have little trust in traditional insurers due to histories of delayed or absent payouts. 
+An index-based policy with meteorological measurement can be used as the trigger for indemnity payments. 
+
+Index-based insurance
+
+Index based insurance is an innovative and increasingly popular approach to insurance provision. The product involves contracts where a claim is defined with reference to a predetermined index. 
+If a certain parameter is satisfied then the policyholder receives a predefined pay-out. Moreover if the agricultural insurance is built on blockchain system this would bring transparency and reliability. 
+For example, if a certain rain threshold is hit, with weather data being provided regurarly by sensors in the field, then an immediate payout is made and drafted on the smart contract.
+So, once the smart contract is written, it cannot be changed and is triggered only when the threshold is satisfied and without manual intervention.
+Moreover, index-based insurance can overcome many inefficiencies of the traditional crop one. 
+Firstly it facilitates fair, transparent and timely payouts by removing the ambiguity around the payment of claims both on whether the claim would be paid and how much amount would be paid. So payments are performed automatically and instantly. 
+This happens because the claim becomes payable as soon as the threshold is hit and because the claim amount is pre-agreed.
+Secondly, it reduces the claim settlement time as there is no manual intervention involved to verify the claim. This also means that offering crop insurance in remote areas become possible and efficient because the high cost to verify the claim event is avoided.  
+Additionally, the implementation of parametric insurance provides several benefits over traditional crop insurance since it reduces moral hazard and asymmetric information. 
+
+Potential problems:
+Claim amount could be more or less than the actual damage
+Data provider may fail
+Someone may sabotage
+
