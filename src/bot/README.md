@@ -9,7 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
 #### Prerequisites
 
 In order to build and deploy this chatbot on your local machine, you will need Python 3.6 and a Google account.
-Also, since DialogFlow does not work on localhost, you will need Ngrok (which can be downloaded and installed [here](https://ngrok.com/download)) or a similar tunnelling proxy.
+Also, since DialogFlow does not work on localhost, you will need Ngrok (which can be downloaded and installed [here](https://ngrok.com/download)) or a similar tunnelling proxy in order to use webhooks.
 
 #### Installing 
 
@@ -35,7 +35,5 @@ Following are the steps that need to be followed in order to create the DialogFl
   ```` python3 -m bot_src.server.main.py````
   
  and visiting [localhost](http://127.0.0.1:5000/). 
- 
- #### Creating a Contract with Pacman
  
  
