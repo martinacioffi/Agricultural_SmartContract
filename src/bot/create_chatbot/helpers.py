@@ -118,7 +118,8 @@ def detect_intent_texts(project_id: str, session_id: str, text: str, language_co
         query_input = dialogflow.types.QueryInput(text=text_input)
         response = session_client.detect_intent(session=session, query_input=query_input)
         params = response.query_result.parameters
-        print(response.query_result.output_contexts[0].parameters)
+        if text.upper() == 'PROCEED' or text.upper() == 'PROCEED ':
+            print(response.query_result.output_contexts[0].parameters)
         return response.query_result.action, response.query_result.fulfillment_text, params
 
 

@@ -2,6 +2,7 @@ import json
 from web3 import Web3
 from solc import compile_standard
 import random
+from typing import Optional
 
 
 def create_new_address():
@@ -9,6 +10,14 @@ def create_new_address():
     n = random.randint(0, len(w3.eth.accounts)-1)
     address = w3.eth.accounts[n]
     return address
+
+
+def get_month(num: int) -> Optional[str]:
+    d = {'January': 1, 'February': 2, 'March': 3, 'April': 4, 'May': 5, 'June': 6,
+         'July': 7, 'August': 8, 'September': 9, 'October': 10, 'November': 11, 'December': 12}
+    for m, n in d.items():
+        if n == num:
+            return m
 
 
 def create_contract(location: str, month: int, precipitation: float, address: str):
@@ -84,8 +93,9 @@ def create_contract(location: str, month: int, precipitation: float, address: st
     tx_hash = contract.constructor(location, month, precipitation, address).transact()
     tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     weather_contract = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
+    month_name = get_month(month)
     utterance = (f'Congrats, you just created a new contract that grants you protection for your crops in {location}, '
-                 f'starting from {month}; average precipitation in this month are {precipitation} mm.\nAs soon as '
+                 f'starting from {month_name}; average precipitation in this month are {precipitation} mm.\nAs soon as '
                  f'the evaluation period will be over, the index will be evaluated and payments to either you or '
                  f'the investor who subsidized your contract will be sent out automatically.')
     return tx_hash, tx_receipt, weather_contract, all_accounts, utterance

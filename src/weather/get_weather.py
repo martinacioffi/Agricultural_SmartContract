@@ -70,5 +70,11 @@ def weather_df(where: str, start: str, end: str, time_range: str = 'monthly', di
     df['date'] = df['month'].dt.strftime('%m/%Y')
     return df
 
+
+def avg_precipitation(where: str, start: str, end: str):
+    # TODO start is end minus smt (e.g. default 10 years in the past)
+    # todo find average pricipitation for that month, return as int/float
+    return precip
+
 # index, out, distance = weather('milan', '2014-01-01', '2019-01-02')
 # out
