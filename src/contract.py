@@ -1,9 +1,17 @@
 import json
 from web3 import Web3
 from solc import compile_standard
+import random
 
 
-def create_contract(location, month, precipitation, address):
+def create_new_address():
+    w3 = Web3(Web3.EthereumTesterProvider())
+    n = random.randint(0, len(w3.eth.accounts)-1)
+    address = w3.eth.accounts[n]
+    return address
+
+
+def create_contract(location: str, month: int, precipitation: float, address: str):
 
     compiled_sol = compile_standard({
         'language': 'Solidity',
@@ -65,29 +73,28 @@ def create_contract(location, month, precipitation, address):
     })
 
     w3 = Web3(Web3.EthereumTesterProvider())
-
-    w3.eth.defaultAccount = w3.eth.accounts[0]
-
+    # w3.eth.defaultAccount = w3.eth.accounts[0]
     all_accounts = w3.eth.accounts
 
     bytecode = compiled_sol['contracts']['contract.sol']['WeatherContract']['evm']['bytecode']['object']
-
     abi = json.loads(compiled_sol['contracts']['contract.sol']['WeatherContract']['metadata'])['output']['abi']
 
-    WeatherContract = w3.eth.contract(abi=abi, bytecode=bytecode)
+    contract = w3.eth.contract(abi=abi, bytecode=bytecode)
 
-    #TODO chamge variables with those got from fucntions
-
-    tx_hash = WeatherContract.constructor(location, month, precipitation, address).transact()
+    tx_hash = contract.constructor(location, month, precipitation, address).transact()
     tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-    weathercontract = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
-    utterance = 'Congrats, you just created a new contracts with... '
-    return tx_hash, tx_receipt, weathercontract, all_accounts, utterance
+    weather_contract = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
+    utterance = (f'Congrats, you just created a new contract that grants you protection for your crops in {location}, '
+                 f'starting from {month}; average precipitation in this month are {precipitation} mm.\nAs soon as '
+                 f'the evaluation period will be over, the index will be evaluated and payments to either you or '
+                 f'the investor who subsidized your contract will be sent out automatically.')
+    return tx_hash, tx_receipt, weather_contract, all_accounts, utterance
 
 
 def getavg(contract):
     out = contract.functions.getAvgPrecipitation().call()
     return out
+
 
 def getBalance(w3, account):
     # w3.eth.getBalance(w3.eth.defaultAccount)

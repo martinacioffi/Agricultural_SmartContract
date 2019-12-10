@@ -1,5 +1,5 @@
 import dialogflow_v2 as dialogflow
-from typing import List, Dict
+from typing import List, Dict, Tuple, Optional
 import os
 
 # agrisc_id = 'agrisc-tafasq'
@@ -75,7 +75,7 @@ def create_entity_type(project_id: str, display_name: str, kind: str):
     print('Entity type created: \n{}'.format(response))
 
 
-def get_entity_id(project_id: str, entity_type: str):
+def get_entity_id(project_id: str, entity_type: str) -> Optional[str]:
 
     """Returns the ID of the specified entity."""
 
@@ -106,7 +106,7 @@ def create_entity(project_id: str, entity_type_id: str, entity_value: str, synon
     print('Entity created: {}'.format(response))
 
 
-def detect_intent_texts(project_id: str, session_id: str, text: str, language_code: str = 'en'):
+def detect_intent_texts(project_id: str, session_id: str, text: str, language_code: str = 'en') -> Tuple:
 
     """Detects the intent for a specific agent, given the user's query."""
 
@@ -120,3 +120,18 @@ def detect_intent_texts(project_id: str, session_id: str, text: str, language_co
         params = response.query_result.parameters
         print(response.query_result.output_contexts[0].parameters)
         return response.query_result.action, response.query_result.fulfillment_text, params
+
+
+def get_params(project_id: str, session_id: str, text: str, language_code: str = 'en') -> Tuple[str, int]:
+
+    session_client = dialogflow.SessionsClient()
+    session = session_client.session_path(project_id, session_id)
+
+    text_input = dialogflow.types.TextInput(text=text, language_code=language_code)
+    query_input = dialogflow.types.QueryInput(text=text_input)
+    response = session_client.detect_intent(session=session, query_input=query_input)
+    params = response.query_result.output_contexts[0].parameters
+
+    location = 'm'
+    month = 4
+    return location, month
