@@ -9,14 +9,14 @@ As of now, the easiest way to create a contract is by interacting with the Pacma
 ## Project Organization
 
 This repository is organized in three main folders:
-1. `src` contains the main functions needed to create and deploy the contract on a simulated blockchain, in `contract.py` as well as two other sub-folders, that is:
-2. `bot`, which contains: 
-    - ``create_chatbot``, useful to replicate the chatbot on one's local machine;
-    - ``server`` to interact with it on localhost;
-3. ``weather``, that contains functions useful to obtain the needed weather measures.
+1. [src](src) contains the main functions needed to create and deploy the contract on a simulated blockchain, in [contract.py](src/contract.py), as well as two other sub-folders, that is:
+2. [bot](src/bot), which contains: 
+    - [create_chatbot](src/bot/create_chatbot), useful to replicate the chatbot on one's local machine;
+    - [server](src/bot/server) to interact with it on localhost;
+3. [weather](weather/bot), that contains functions useful to obtain the needed weather measures.
 
-Note that, for ease of testing, the bot is now live on [Facebook Messenger](m.me/pacmanweatheragent). 
-However, in order to appreciate all its functionalities, one needs:
+Note that, for ease of testing, the bot is now live on [Facebook Messenger](https://www.facebook.com/pacmanweatheragent/?view_public_for=105311567631131). 
+However, in order to appreciate all of its functionalities, one needs:
 - Test Users' permissions (email me to get those);
 - a tunnelling proxy activated in order for webhooks to works. I can turn these on on request, please email me (martina.cioffi@studbocconi.it) and we can agree on a timeframe (8 hours since when it is started) during which webhooks will be active.
 
