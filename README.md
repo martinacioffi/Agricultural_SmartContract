@@ -52,6 +52,14 @@ As of now, an example of a doable conversation with Pacman looks like this:
             the investor who subsidized your contract will be sent out automatically.
     
 Note: 
-(i) when the options available are not clear, the user - though the Facebook Messenger platform - is shown button with the different options to choose from; 
+(i) when the options available are not clear, the user - through the Facebook Messenger platform - is shown buttons with the different options to choose from; 
 (ii) when the bot states that the contract has been created, this has actually been sent to the blockchain for deployment. 
+
+## Authors
+
+- [Martina Cioffi](https://github.com/martinacioffi)
+- [Luca Ferrario](https://github.com/lucafirefox)
+- [Luca Pacchiana](https://github.com/LucaPacchiana)
+- [Marco Pettazzi](https://github.com/Marco-Pettazzi)
+- [Benedetta Sargentoni](https://github.com/benedettasrg)
 
