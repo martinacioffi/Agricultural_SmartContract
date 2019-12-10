@@ -9,3 +9,7 @@
 **Martina, Luca P., Marco, Benedetta, Dec 9**: first contract compiling
 
 **Martina, Dec 10**: parameters handling from bot to contract
+
+**Martina, Dec 10**: bot integration on Facebook Messenger
+
+**Luca F., Dec 10**: average precipitation

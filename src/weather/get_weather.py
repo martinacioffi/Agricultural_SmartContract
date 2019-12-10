@@ -5,6 +5,8 @@ import logging
 import configparser
 from pandas.io.json import json_normalize
 from geopy.geocoders import Nominatim
+from dateutil import relativedelta
+from datetime import date
 import requests
 import pandas as pd
 
@@ -71,10 +73,22 @@ def weather_df(where: str, start: str, end: str, time_range: str = 'monthly', di
     return df
 
 
-def avg_precipitation(where: str, start: str, end: str):
-    # TODO start is end minus smt (e.g. default 10 years in the past)
-    # todo find average pricipitation for that month, return as int/float
-    return precip
+def avg_precipitation(where: str, month: int, year_range: str = '10'):
+    month = int(month)
+    assert (1 <= month <= 12)
 
-# index, out, distance = weather('milan', '2014-01-01', '2019-01-02')
-# out
+    end = date.today().replace(day=1, month=month) + relativedelta(months=+1) + relativedelta(days=-1)
+
+    if year_range == 'max':
+        start = end.replace(year=end.year - 49, day=1)
+    else:
+        start = end.replace(year=end.year - int(year_range) + 1, day=1)
+
+    precip = weather(where, start.strftime('%Y/%m/%d'), end.strftime('%Y/%m/%d'),
+                     time_range='daily')[1]
+
+    precip.date = pd.to_datetime(precip.date)
+    mask = precip.date.map(lambda x: x.month) == month
+    precip = precip[mask].precipitation
+
+    return precip

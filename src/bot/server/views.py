@@ -30,7 +30,7 @@ def process():
         return redirect(url_for('home.welcome'))
     elif raw_query.upper() == 'PROCEED':
         location, month = get_params(os.environ['PROJECT_ID'], session, raw_query)
-        precip = 32  # avg_precipitation(location, month,)
+        precip = avg_precipitation(location, month,)
         address = create_new_address()
         _, __, ___, _____, utterance = create_contract(location, month, precip, address)
         return utterance
