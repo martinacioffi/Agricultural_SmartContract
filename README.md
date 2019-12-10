@@ -25,7 +25,7 @@ However, in order to appreciate all of its functionalities, one needs:
 While the bot was initially developed in order for farmers of developing countries to more easily create a contract by using means they are likely more accustomed to than computers (i.e. phones and in particular Facebook, or any other platform the bot can be deployed on), it would make sense to also have a website from which one can create his of her own smart contract. In that case, the bot would still be accessible through a chat plugin similar to what can be found [here](https://martinacioffi.github.io/projects/).
 
 Moreover, as of now the bot is extremely basic and is not able to sustain complex conversations (i.e. it cannot handle multiple intents, it does not deal well with typos, etc.).
-This is indeed *just a prototype*: ideally, the above and several other features should be added in order for the chatbot to successfully carry out its tasks - for instance, one could think of inserting pictures and suggestions in order to help farmers even more understand what they are insuring against. Also, support for different languages - and possibly dialect - should be added.
+This is indeed *just a prototype*: ideally, the above and several other features should be added in order for the chatbot to successfully carry out its tasks - for instance, one could think of inserting pictures and suggestions in order to help farmers even more understand what they are insuring against. Also, support for different languages - and possibly dialects - should be added.
 
 As of now, an example of a doable conversation with Pacman looks like this:
 
@@ -41,11 +41,15 @@ As of now, an example of a doable conversation with Pacman looks like this:
     User: Rainfall
     Pacman: What kind of contract best suits your needs?
     User: Standard
-    Pacman: Alright, we can proceed with a standard contract. For which month would you like to insure your crops?
+    Pacman: Alright, we can proceed with a standard contract. For which month would you like to insure
+            your crops?
     User: May
     Pacman: I am about to create your contract. Do you want to proceed?
     User: CONFIRM
-    Pacman: Congrats, you just created a new contract that grants you protection for your crops in Mumbai, starting from May; average precipitation in this month are 32 mm. As soon as the evaluation period will be over, the index will be evaluated and payments to either you or the investor who subsidized your contract will be sent out automatically.
+    Pacman: Congrats, you just created a new contract that grants you protection for your crops in 
+            Mumbai, starting from May; average precipitation in this month are 32 mm. As soon as the 
+            evaluation period will be over, the index will be evaluated and payments to either you or
+            the investor who subsidized your contract will be sent out automatically.
     
 Note: 
 (i) when the options available are not clear, the user - though the Facebook Messenger platform - is shown button with the different options to choose from; 
