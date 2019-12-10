@@ -7,3 +7,5 @@
 **Benedetta, Marco, Dec 7**: initial report
 
 **Martina, Luca P., Marco, Benedetta, Dec 9**: first contract compiling
+
+**Martina, Dec 10**: parameters handling from bot to contract
