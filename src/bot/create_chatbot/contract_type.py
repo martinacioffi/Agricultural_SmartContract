@@ -60,7 +60,7 @@ type_tp = [
      {'text': ' contract.',
       'entity_type': None,
       'alias': None,
-      'user_defined': False}],
+      'user_defined': False}]
 ]
 
 type_mt = [('Alright, we can proceed with a $contract-type contract. '

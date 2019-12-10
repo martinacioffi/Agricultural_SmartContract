@@ -28,9 +28,9 @@ def process():
     raw_query = request.args.get('msg')
     if raw_query is None:
         return redirect(url_for('home.welcome'))
-    elif raw_query.upper() == 'PROCEED':
+    elif raw_query.upper() == 'CONFIRM':
         location, month = get_params(os.environ['PROJECT_ID'], session, raw_query)
-        precip = avg_precipitation(location, month,)
+        precip = avg_precipitation(location, month)
         address = create_new_address()
         _, __, ___, _____, utterance = create_contract(location, month, precip, address)
         return utterance

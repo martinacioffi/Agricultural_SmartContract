@@ -6,6 +6,7 @@ from src.bot.create_chatbot.land_size import size_name, size_tp, size_mt, size_p
 from src.bot.create_chatbot.danger import danger_name, danger_tp, danger_mt, danger_params
 from src.bot.create_chatbot.contract_type import type_name, type_tp, type_mt, type_params
 from src.bot.create_chatbot.month import month_name, month_tp, month_mt, month_params
+from src.bot.create_chatbot.confirm_proceed import confirm_name, confirm_tp, confirm_mt
 
 print('Creating Pacman entities...')
 
@@ -86,4 +87,12 @@ create_intent(project_id=agrisc_id, display_name=month_name,
               input_context_names=['awaiting_month'],
               output_contexts_names={'confirm_proceed': 1},
               action=month_name,
-              parameters=month_name)
+              parameters=month_params)
+
+create_intent(project_id=agrisc_id, display_name=confirm_name,
+              training_phrases=confirm_tp,
+              message_texts=confirm_mt,
+              input_context_names=['confirm_proceed'],
+              action=confirm_name,
+              webhook_state=True)
+

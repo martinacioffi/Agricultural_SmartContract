@@ -9,7 +9,7 @@ agrisc_id = os.environ['PROJECT_ID']
 def create_intent(project_id: str, display_name: str, training_phrases: List[List[Dict]],
                   message_texts: List[str], input_context_names: List[str] = None,
                   output_contexts_names: Dict[str, int] = None, action: str = None,
-                  parameters: List[Dict] = None, webhook_state: bool = True, priority: int = 500000):
+                  parameters: List[Dict] = None, webhook_state: bool = False, priority: int = 500000):
 
     """Create an intent of the given intent type."""
 

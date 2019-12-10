@@ -5,7 +5,7 @@ import logging
 import configparser
 from pandas.io.json import json_normalize
 from geopy.geocoders import Nominatim
-from dateutil import relativedelta
+from dateutil.relativedelta import relativedelta
 from datetime import date
 import requests
 import pandas as pd
@@ -27,7 +27,7 @@ def get_api_key():
 
 def weather(where: str, start: str, end: str, time_range: str = 'monthly', distlimit: int = 5):
 
-    api = get_api_key()
+    api = '2arOOWuC'  # get_api_key()
     geolocator = Nominatim(user_agent='weather-app')
     loc = geolocator.geocode(where)
 
@@ -90,5 +90,4 @@ def avg_precipitation(where: str, month: int, year_range: str = '10'):
     precip.date = pd.to_datetime(precip.date)
     mask = precip.date.map(lambda x: x.month) == month
     precip = precip[mask].precipitation
-
     return precip
