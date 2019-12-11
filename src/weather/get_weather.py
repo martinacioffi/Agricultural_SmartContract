@@ -90,4 +90,4 @@ def avg_precipitation(where: str, month: int, year_range: str = '10'):
     precip.date = pd.to_datetime(precip.date)
     mask = precip.date.map(lambda x: x.month) == month
     precip = precip[mask].precipitation
-    return precip
+    return precip.mean()
