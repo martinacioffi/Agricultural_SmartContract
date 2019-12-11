@@ -3,6 +3,7 @@ from web3 import Web3
 from solc import compile_standard
 import random
 from typing import Optional
+import pandas as pd
 
 
 def get_month(num: int) -> Optional[str]:
@@ -20,7 +21,7 @@ def create_new_address():
     return address
 
 
-def create_contract(location: str, month: int, precipitation: float, address: str):
+def create_contract(location: str, month: int, precipitation: Optional[int, float], address: str):
 
     compiled_sol = compile_standard({
         'language': 'Solidity',
@@ -94,10 +95,19 @@ def create_contract(location: str, month: int, precipitation: float, address: st
     tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     weather_contract = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
     month_name = get_month(month)
-    utterance = (f'Congrats, you just created a new contract that grants you protection for your crops in {location}, '
-                 f'starting from {month_name}; average precipitation in this month are {precipitation} mm.\nAs soon as '
-                 f'the evaluation period will be over, the index will be evaluated and payments to either you or '
-                 f'the investor who subsidized your contract will be sent out automatically.')
+
+    congrats = (f'Congrats, you just created a new contract that grants you protection for your crops in {location}, '
+                f'starting from {month_name}; average precipitation for this month are ')
+
+    if precipitation is None or pd.isnull(precipitation):
+        precip = 'not available.\n'
+    else:
+        precip = f'{precipitation} mm.\n'
+
+    explic = ('As soon as the evaluation period will be over, the index will be evaluated and payments to either you '
+              'or the investor who subsidized your contract will be sent out automatically.')
+    utterance = congrats + precip + explic
+
     return tx_hash, tx_receipt, weather_contract, all_accounts, utterance
 
 

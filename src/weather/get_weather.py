@@ -9,6 +9,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import date
 import requests
 import pandas as pd
+from typing import Optional
 
 
 logger = logging.getLogger('weather_logging')
@@ -73,7 +74,7 @@ def weather_df(where: str, start: str, end: str, time_range: str = 'monthly', di
     return df
 
 
-def avg_precipitation(where: str, month: int, year_range: str = '10'):
+def avg_precipitation(where: str, month: int, year_range: Optional[str, int] = 10):
     month = int(month)
     assert (1 <= month <= 12)
 
@@ -90,4 +91,4 @@ def avg_precipitation(where: str, month: int, year_range: str = '10'):
     precip.date = pd.to_datetime(precip.date)
     mask = precip.date.map(lambda x: x.month) == month
     precip = precip[mask].precipitation
-    return precip.mean()
+    return round(precip.mean(), 2)
