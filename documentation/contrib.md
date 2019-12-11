@@ -13,3 +13,5 @@
 **Martina, Dec 10**: bot integration on Facebook Messenger
 
 **Luca F., Dec 10**: average precipitation
+
+**Martina, Dec 11**: improved report 
