@@ -56,7 +56,7 @@ Note:
 (ii) when the bot states that the contract has been created, this has actually been sent to the blockchain for deployment. 
 
 
-[Demo](pacmanOK.mov)
+![](src/bot/pacmanOK_compressed.mov)
 ## Authors
 
 - [Martina Cioffi](https://github.com/martinacioffi)
