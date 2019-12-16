@@ -15,3 +15,5 @@
 **Luca F., Dec 10**: average precipitation
 
 **Martina, Dec 11**: improved report 
+
+**Martina, Dec 16**: cleaned and finalized code
