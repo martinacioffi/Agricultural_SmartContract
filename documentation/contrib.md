@@ -16,4 +16,8 @@
 
 **Martina, Dec 11**: improved report 
 
+**Benedetta, Marco, Luca P., Dec 15**: improved report
+
 **Martina, Dec 16**: cleaned and finalized code
+
+**Martina, Dec 16**: added demo video for bot
