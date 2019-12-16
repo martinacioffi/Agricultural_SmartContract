@@ -55,6 +55,8 @@ Note:
 (i) when the options available are not clear, the user - through the Facebook Messenger platform - is shown buttons with the different options to choose from; 
 (ii) when the bot states that the contract has been created, this has actually been sent to the blockchain for deployment. 
 
+Please, see the video below for an example of a conversation with Pacman.
+
 
 ![](src/bot/pacmanOK_compressed.mov)
 ## Authors
