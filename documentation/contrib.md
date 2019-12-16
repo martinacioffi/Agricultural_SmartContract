@@ -6,6 +6,8 @@
 
 **Benedetta, Marco, Dec 7**: initial report
 
+**Benedetta, Marco, Dec 9**: requirements for web3 and solidity compiler
+
 **Martina, Luca P., Marco, Benedetta, Dec 9**: first contract compiling
 
 **Martina, Dec 10**: parameters handling from bot to contract
@@ -15,6 +17,8 @@
 **Luca F., Dec 10**: average precipitation
 
 **Martina, Dec 11**: improved report 
+
+**Benedetta, Marco, Dec 14**: improved report
 
 **Benedetta, Marco, Luca P., Dec 15**: improved report
 
