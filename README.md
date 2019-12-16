@@ -22,7 +22,7 @@ However, in order to appreciate all of its functionalities, one needs:
 
 ## Future Improvements
 
-While the bot was initially developed in order for farmers of developing countries to more easily create a contract by using means they are likely more accustomed to than computers (i.e. phones and in particular Facebook, or any other platform the bot can be deployed on), it would make sense to also have a website from which one can create his of her own smart contract. In that case, the bot would still be accessible through a chat plugin similar to what can be found [here](https://martinacioffi.github.io/projects/).
+While the bot was initially developed in order for farmers of developing countries to more easily create a contract by using means they are likely more accustomed to than computers (i.e. phones and in particular Facebook, or any other platform the bot can be deployed on), it would make sense to also have a website from which one can create his of her own smart contract. In that case, the bot would still be accessible through a chat plugin similar to what can be found [here](https://martinacioffi.github.io/projects/) (in the bottom right corner of the page).
 
 Moreover, as of now the bot is extremely basic and is not able to sustain complex conversations (i.e. it cannot handle multiple intents, it does not deal well with typos, etc.).
 This is indeed *just a prototype*: ideally, the above and several other features should be added in order for the chatbot to successfully carry out its tasks - for instance, one could think of inserting pictures and suggestions in order to help farmers even more understand what they are insuring against. Also, support for different languages - and possibly dialects - should be added.
