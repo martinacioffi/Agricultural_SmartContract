@@ -9,7 +9,6 @@ from dateutil.relativedelta import relativedelta
 from datetime import date
 import requests
 import pandas as pd
-from typing import Optional
 
 
 logger = logging.getLogger('weather_logging')
@@ -28,7 +27,7 @@ def get_api_key():
 
 def weather(where: str, start: str, end: str, time_range: str = 'monthly', distlimit: int = 5):
 
-    api = '2arOOWuC'  # get_api_key()
+    api = get_api_key()
     geolocator = Nominatim(user_agent='weather-app')
     loc = geolocator.geocode(where)
 
@@ -74,7 +73,7 @@ def weather_df(where: str, start: str, end: str, time_range: str = 'monthly', di
     return df
 
 
-def avg_precipitation(where: str, month: int, year_range: Optional[str, int] = 10):
+def avg_precipitation(where: str, month: int, year_range=10):
     month = int(month)
     assert (1 <= month <= 12)
 

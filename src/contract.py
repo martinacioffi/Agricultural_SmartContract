@@ -21,7 +21,7 @@ def create_new_address():
     return address
 
 
-def create_contract(location: str, month: int, precipitation: Optional[int, float], address: str):
+def create_contract(location: str, month: int, precipitation: Optional[float], address: str):
 
     compiled_sol = compile_standard({
         'language': 'Solidity',
@@ -90,8 +90,7 @@ def create_contract(location: str, month: int, precipitation: Optional[int, floa
     abi = json.loads(compiled_sol['contracts']['contract.sol']['WeatherContract']['metadata'])['output']['abi']
 
     contract = w3.eth.contract(abi=abi, bytecode=bytecode)
-
-    tx_hash = contract.constructor(location, month, precipitation, address).transact()
+    tx_hash = contract.constructor(location, month, int(precipitation), address).transact()
     tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     weather_contract = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
     month_name = get_month(month)
@@ -100,16 +99,17 @@ def create_contract(location: str, month: int, precipitation: Optional[int, floa
                 f'starting from {month_name}; average precipitation for this month are ')
 
     if precipitation is None or pd.isnull(precipitation):
-        precip = 'not available.\n'
+        precip = 'not available.\n\n'
     else:
-        precip = f'{precipitation} mm.\n'
+        precip = f'{precipitation} mm.\n\n'
 
     explic = ('As soon as the evaluation period will be over, the index will be evaluated and payments to either you '
               'or the investor who subsidized your contract will be sent out automatically.')
-    technical_info = (f'\nIn the meanwhile, please note that your address is {tx_receipt.contractAddress}. Store it '
+    technical_info = (f'\n\nIn the meanwhile, please note that your address is {tx_receipt.contractAddress}. Store it '
                       f'in a safe location. For this transaction, you used {tx_receipt.gasUsed} gas, and your '
                       f'overall gas consumption amounts to {tx_receipt.cumulativeGasUsed}.')
-    utterance = congrats + precip + explic + technical_info
+    greet = '\n\nSee you next time!'
+    utterance = congrats + precip + explic + technical_info + greet
 
     return tx_hash, tx_receipt, weather_contract, all_accounts, utterance
 
