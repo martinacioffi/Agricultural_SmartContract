@@ -2,7 +2,6 @@ import dialogflow_v2 as dialogflow
 from typing import List, Dict, Tuple, Optional
 import os
 
-# agrisc_id = 'agrisc-tafasq'
 agrisc_id = os.environ['PROJECT_ID']
 
 

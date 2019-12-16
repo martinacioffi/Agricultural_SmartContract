@@ -96,3 +96,4 @@ create_intent(project_id=agrisc_id, display_name=confirm_name,
               action=confirm_name,
               webhook_state=True)
 
+print('\nYour bot was successfully created.')

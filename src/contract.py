@@ -106,17 +106,30 @@ def create_contract(location: str, month: int, precipitation: Optional[int, floa
 
     explic = ('As soon as the evaluation period will be over, the index will be evaluated and payments to either you '
               'or the investor who subsidized your contract will be sent out automatically.')
-    utterance = congrats + precip + explic
+    technical_info = (f'\nIn the meanwhile, please note that your address is {tx_receipt.contractAddress}. Store it '
+                      f'in a safe location. For this transaction, you used {tx_receipt.gasUsed} gas, and your '
+                      f'overall gas consumption amounts to {tx_receipt.cumulativeGasUsed}.')
+    utterance = congrats + precip + explic + technical_info
 
     return tx_hash, tx_receipt, weather_contract, all_accounts, utterance
 
 
-def getavg(contract):
+def get_starting_month(contract):
+    # NOTE: this has to be called on 'weather_contract'
+    out = contract.functions.getStartingMonth().call()
+    return out
+
+
+def get_avg_precipitation(contract):
     out = contract.functions.getAvgPrecipitation().call()
     return out
 
 
-def getBalance(w3, account):
-    # w3.eth.getBalance(w3.eth.defaultAccount)
-    bal = w3.eth.getBalance(w3.eth.account)
+def get_location(contract):
+    out = contract.functions.getLocation().call()
+    return out
+
+
+def get_balance(w3, address):
+    bal = w3.eth.getBalance(address)
     return bal
