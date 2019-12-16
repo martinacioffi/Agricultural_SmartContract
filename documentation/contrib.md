@@ -21,3 +21,5 @@
 **Martina, Dec 16**: cleaned and finalized code
 
 **Martina, Dec 16**: added demo video for bot
+
+**Martina, Dec 16**: finalized report
